@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Élégance Parfum</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            Élégance<span>Parfum</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Panier <span id="cart-count">0</span>
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="accueil">
+
+    <div class="hero-content">
+
+        <p class="small-title">COLLECTION 2026</p>
+
+        <h1>
+            Votre parfum,
+            <span>votre élégance.</span>
+        </h1>
+
+        <p>
+            Découvrez notre collection de parfums élégants
+            pour femmes et hommes.
+        </p>
+
+        <a href="#produits" class="hero-button">
+            Découvrir la collection
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUITS -->
+
+<section class="products-section" id="produits">
+
+    <div class="section-title">
+
+        <p>NOTRE COLLECTION</p>
+
+        <h2>Parfums populaires</h2>
+
+        <span>
+            Des fragrances sélectionnées avec soin.
+        </span>
+
+    </div>
+
+
+    <div class="products-container">
+
+
+        <!-- Produit 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                <img
+                    src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"
+                    alt="Parfum Élégance">
+            </div>
+
+            <div class="product-info">
+
+                <h3>Élégance Rose</h3>
+
+                <p>
+                    Une fragrance florale et élégante.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>250 DH</strong>
+
+                    <button onclick="addToCart('Élégance Rose', 250)">
+                        Ajouter
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Produit 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=600&q=80"
+                    alt="Parfum Gold">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Gold Essence</h3>
+
+                <p>
+                    Une fragrance douce et sophistiquée.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>320 DH</strong>
+
+                    <button onclick="addToCart('Gold Essence', 320)">
+                        Ajouter
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Produit 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80"
+                    alt="Parfum Noir">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Noir Intense</h3>
+
+                <p>
+                    Une fragrance intense et mystérieuse.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>290 DH</strong>
+
+                    <button onclick="addToCart('Noir Intense', 290)">
+                        Ajouter
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+    <div class="contact-container">
+
+        <div>
+
+            <p class="small-title">CONTACT</p>
+
+            <h2>Vous souhaitez commander ?</h2>
+
+            <p>
+                Remplissez le formulaire et nous vous contacterons
+                pour confirmer votre commande.
+            </p>
+
+        </div>
+
+
+        <form id="order-form">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Votre nom"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Votre téléphone"
+                required
+            >
+
+            <select id="product">
+
+                <option value="">
+                    Choisir un parfum
+                </option>
+
+                <option value="Élégance Rose">
+                    Élégance Rose
+                </option>
+
+                <option value="Gold Essence">
+                    Gold Essence
+                </option>
+
+                <option value="Noir Intense">
+                    Noir Intense
+                </option>
+
+            </select>
+
+            <textarea
+                id="message"
+                placeholder="Votre message..."
+            ></textarea>
+
+            <button type="submit">
+                Envoyer la commande
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- PANIER -->
+
+<div class="cart-overlay" id="cart-overlay">
+
+    <div class="cart">
+
+        <div class="cart-header">
+
+            <h2>Mon panier</h2>
+
+            <button onclick="closeCart()">✕</button>
+
+        </div>
+
+
+        <div id="cart-items">
+
+            <p class="empty-cart">
+                Votre panier est vide.
+            </p>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="total">
+
+                <span>Total :</span>
+
+                <strong id="cart-total">
+                    0 DH
+                </strong>
+
+            </div>
+
+            <button
+                class="checkout-button"
+                onclick="checkout()"
+            >
+                Commander
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>ÉléganceParfum</h3>
+
+        <p>
+            Des parfums qui racontent votre histoire.
+        </p>
+
+        <p>
+            © 2026 ÉléganceParfum - Tous droits réservés.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
